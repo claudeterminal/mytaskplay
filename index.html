@@ -16,10 +16,11 @@
     --parchment-dim:#c4ac82;--muted:#9b8362;--ink:#0d0905;--danger:#d8553f;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-  html,body{height:100%;}
+  html,body{height:100%;overscroll-behavior:none;}
   body{
     font-family:'EB Garamond',Georgia,serif;color:var(--parchment);
     background:#0c0805;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    position:fixed;top:0;left:0;right:0;bottom:0;overscroll-behavior:none;
   }
   /* ===== PHONE FRAME (portrait mobile ratio) ===== */
   .phone{
@@ -148,7 +149,7 @@
 
   /* GAME (portrait) */
   #screen-game .gtitle{font-family:'Cinzel',serif;color:var(--gold-bright);font-size:18px;margin:12px 2px 2px;}
-  .game-wrap{position:relative;width:100%;flex:1 1 auto;min-height:0;overflow:hidden;--bw:118px;padding-left:var(--bw);
+  .game-wrap{position:relative;width:100%;flex:1 1 auto;min-height:0;overflow:hidden;touch-action:none;overscroll-behavior:none;--bw:118px;padding-left:var(--bw);
     background:#0a0d12;line-height:0;}
   #gl{display:block;width:100%;height:100%;touch-action:none;cursor:pointer;}
   .game-overlay{position:absolute;top:0;right:0;bottom:0;left:var(--bw);display:grid;place-items:center;text-align:center;line-height:1.4;
@@ -157,9 +158,9 @@
   #game-cd,#game-over{background:rgba(0,0,0,.8);}
   .game-overlay h3{font-family:'Cinzel',serif;font-size:25px;color:var(--gold-bright);text-shadow:0 2px 18px rgba(255,126,61,.4);}
   .game-overlay p{color:var(--parchment-dim);margin:9px 0 4px;max-width:280px;font-size:13px;}
-  .runstats{display:flex;gap:22px;justify-content:center;margin:14px 0;}
-  .runstats div b{display:block;font-family:'Cinzel',serif;font-size:28px;color:var(--gold);}
-  .runstats div span{font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+  .runstats{display:flex;gap:12px;justify-content:center;margin:5px 0;}
+  .runstats div b{display:block;font-family:'Cinzel',serif;font-size:14px;color:var(--gold);}
+  .runstats div span{font-size:7px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;}
   .controls-hint{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic;}
   .hud{position:absolute;top:44px;left:calc(var(--bw) + 8px);right:10px;display:flex;justify-content:space-between;z-index:4;
     font-family:'Cinzel',serif;font-size:15px;color:#fff;pointer-events:none;text-shadow:0 2px 6px #000;}
@@ -200,13 +201,13 @@
   #cd-eatcard .eat-grid{display:flex;flex-direction:column;gap:4px;}
   #cd-eatcard .eat-row{display:flex;align-items:center;gap:7px;}
   #cd-eatcard .eat-d{flex:none;width:26px;text-align:right;font-size:12px;color:#ffdf9a;font-weight:700;font-family:'Cinzel',serif;}
-  #cd-eatcard .eat-in{flex:1;min-width:0;background:rgba(0,0,0,.32);border:1px solid rgba(237,191,90,.35);border-radius:6px;color:#f0e3c8;font-size:12.5px;padding:4px 7px;font-family:inherit;}
+  #cd-eatcard .eat-in{flex:1;min-width:0;background:rgba(0,0,0,.32);border:1px solid rgba(237,191,90,.35);border-radius:6px;color:#f0e3c8;font-size:10px;padding:4px 6px;font-family:inherit;}
   #cd-eatcard .eat-in:focus{outline:none;border-color:var(--gold-bright);background:rgba(0,0,0,.5);}
   .cd-label{font-family:'Cinzel',serif;color:var(--parchment-dim);letter-spacing:2px;text-transform:uppercase;font-size:11px;}
   .cd-timer{font-family:'Cinzel',serif;font-size:46px;color:var(--danger);line-height:1;margin:2px 0 14px;text-shadow:0 2px 16px rgba(216,85,63,.45);}
   .cd-timer.ready{color:var(--jade);font-size:30px;}
-  .cd-btns{display:flex;flex-direction:column;gap:6px;margin-top:12px;align-items:stretch;}
-  .cd-act{width:100%;flex:none;padding:12px 8px;font-size:14px;white-space:nowrap;min-height:46px;display:flex;align-items:center;justify-content:center;}
+  .cd-btns{display:flex;flex-direction:column;gap:9px;margin-top:8px;align-items:stretch;}
+  .cd-act{width:100%;flex:none;padding:18px 8px;font-size:19px;white-space:nowrap;min-height:64px;display:flex;align-items:center;justify-content:center;}
   .cd-fail{color:var(--danger);border-color:rgba(216,85,63,.55);}
   .cd-skip{color:var(--gold-bright);border-color:rgba(237,191,90,.45);}
   .kk{display:inline-block;font-size:.72em;opacity:.6;border:1px solid currentColor;border-radius:4px;padding:0 4px;margin-right:5px;vertical-align:1px;}
@@ -251,7 +252,7 @@
   .dc-ttl{font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#ffdf9a;text-shadow:0 1px 2px #000;}
   .dc-min{width:20px;height:20px;flex:none;border-radius:5px;border:1px solid rgba(255,223,154,.4);background:rgba(0,0,0,.25);color:#ffdf9a;font-size:15px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0;}
   .dc-min:active{transform:scale(.92);}
-  #dc-scroll{position:relative;flex:1;overflow-y:scroll;overflow-x:hidden;padding-left:0;pointer-events:auto;scrollbar-width:none;-ms-overflow-style:none;}
+  #dc-scroll{position:relative;flex:1;overflow-y:scroll;overflow-x:hidden;overscroll-behavior:contain;padding-left:0;pointer-events:auto;scrollbar-width:none;-ms-overflow-style:none;}
   #dc-scroll::-webkit-scrollbar{width:0;height:0;display:none;}
   #dc-now{position:absolute;left:0;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:6px solid #ffd24a;transform:translateY(-50%);transition:top .6s linear;filter:drop-shadow(0 0 4px rgba(255,210,74,.95));z-index:3;pointer-events:none;}
   .dc-item{display:flex;align-items:flex-start;gap:1px;padding:1.5px 0;line-height:1.05;}
@@ -264,6 +265,9 @@
   .dc-item.blank .t{opacity:.7;}
   .dc-item.blank:active{background:rgba(255,210,74,.22);}
   .dc-item.hourstart .t{font-weight:700;color:#ffe9b0;}
+  .dc-item.cont .n{color:#caa86a;opacity:.75;font-size:14px;font-weight:700;text-align:center;}
+  .dc-item.blank5 .t{color:#caa86a;opacity:.6;font-weight:400;}
+  .dc-item.blank5 .n{min-height:13px;}
   .dc-item.sleepheal{padding:1.5px 1px;}
   .dc-item.sleepheal .n{color:#ff5a4d;font-weight:700;text-transform:lowercase;text-shadow:0 1px 2px #000;}
   .dc-item.sleepheal .t{color:#ff8a7d;width:auto;}
@@ -525,8 +529,9 @@ function toggleJungle(){const c=audioInit();
   if(jungleOn&&!amb.on){setToggleUI();go();return;}
   jungleOn=!jungleOn;state.meta.jungleOn=jungleOn;saveAll();setToggleUI();if(jungleOn)go();else ambStop();}
 function speak(text){if(!voiceOn||!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=1;u.pitch=1;u.volume=1;speechSynthesis.speak(u);}catch(e){}}
-function speakBreak(rem){const t=currentTask(),m=Math.floor(rem/60),s=rem%60;
-  const tl=m>0?(m+' minute'+(m>1?'s':'')+(s?' and '+s+' seconds':'')+' left'):(s+' second'+(s===1?'':'s')+' left');
+function speakBreak(rem){const t=currentTask();let tl;
+  if(rem>0){const m=Math.floor(rem/60),s=rem%60;tl=m>0?(m+' minute'+(m>1?'s':'')+(s?' and '+s+' seconds':'')+' left'):(s+' second'+(s===1?'':'s')+' left');}
+  else{const o=-rem,m=Math.floor(o/60),s=o%60;tl=(m>0?(m+' minute'+(m>1?'s':'')+(s?' and '+s+' seconds':'')):(s+' second'+(s===1?'':'s')))+' over';}
   const lines=[
     'Have you started '+t+' yet?',
     'Go do '+t+'. I will wait.',
@@ -1096,6 +1101,235 @@ async function loadState(){
     }
     state.meta.mig_rifaximin2=true;await saveAll();
   }
+  if(!state.meta.mig_walkhat){
+    for(let i=0;i<state.tasks.length;i++){if(/10\s*min\s*walk/i.test(state.tasks[i]||''))state.tasks[i]='10 min walk (hat+music)';}
+    state.meta.mig_walkhat=true;await saveAll();
+  }
+  if(!state.meta.mig_facewalk2){
+    for(let i=0;i<state.tasks.length;i++){if(/theragun/i.test(state.tasks[i]||''))state.tasks[i]='wash face';}
+    let cookIdx=-1,cookMin=1e9;
+    state.tasks.forEach((t,i)=>{if(/cook\s*\+\s*eat/i.test(t||'')){const mn=parseClock(state.times[i]);if(mn!=null&&mn<cookMin){cookMin=mn;cookIdx=i;}}});
+    if(cookIdx>=0)state.tasks[cookIdx]='cook/eat 1';
+    if(!state.tasks.some(t=>t==='"')){
+      const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+      const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+      const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+      let entries=state.tasks.map((t,i)=>({t,tm:state.times[i],min:parseClock(state.times[i]),oi:i}));
+      entries.forEach(e=>{if(e.min===560){e.min=561;e.tm='9:21 AM';}}); // nudge the 9:20 task to 9:21
+      entries.push({t:'"',tm:'9:20 AM',min:560,oi:-1});                  // walk-continuation marker
+      entries.forEach((e,i)=>e.ord=i);
+      entries.sort((a,b)=>{const am=a.min==null?1e9:a.min,bm=b.min==null?1e9:b.min;return (am-bm)||(a.ord-b.ord);});
+      const used=new Set();
+      entries.forEach(e=>{if(e.min==null)return;let m=e.min;while(used.has(m))m++;used.add(m);if(m!==e.min){e.min=m;e.tm=minStr(m);}});
+      state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+      for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    }
+    state.meta.mig_facewalk2=true;await saveAll();
+  }
+  if(!state.meta.mig_cont2){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=[];
+    state.tasks.forEach((t,i)=>{const mn=parseClock(state.times[i]);
+      if(mn!=null&&mn>=795&&mn<=815&&/pajama/i.test(t||''))return; // drop the 1:20/1:25 PM pajamas
+      entries.push({t,tm:state.times[i]||'',min:mn,oi:i});});
+    entries.forEach(e=>{if(e.min===500){e.min=501;e.tm='8:21 AM';}}); // free 8:20 for shower
+    if(!entries.some(e=>/shower/i.test(e.t)&&e.min!=null&&e.min<720)){
+      entries.push({t:'shower',tm:'8:20 AM',min:500,oi:-1});
+      entries.push({t:'"',tm:'8:25 AM',min:505,oi:-1}); }
+    const burns=entries.filter(e=>/burn/i.test(e.t||'')&&e.min!=null&&(e.min%60)===50).map(e=>e.min);
+    burns.forEach(b=>{const cm=b+5;if(!entries.some(e=>e.min===cm))entries.push({t:'"',tm:minStr(cm),min:cm,oi:-1});});
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>{const am=a.min==null?1e9:a.min,bm=b.min==null?1e9:b.min;return (am-bm)||(a.ord-b.ord);});
+    const used=new Set();
+    entries.forEach(e=>{if(e.min==null)return;let m=e.min;while(used.has(m))m++;used.add(m);if(m!==e.min){e.min=m;e.tm=minStr(m);}});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_cont2=true;await saveAll();
+  }
+  if(!state.meta.mig_wf_cookeat){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=[];
+    state.tasks.forEach((t,i)=>{const mn=parseClock(state.times[i]);
+      if(/waterfloss/i.test(t||''))return; // drop standalone waterfloss; re-added after cook/eat
+      entries.push({t,tm:state.times[i]||'',min:mn,oi:i});});
+    // move earliest wash face to 8:35 AM
+    let wfaceE=null;entries.forEach(e=>{if(/wash face/i.test(e.t||'')&&e.min!=null&&(!wfaceE||e.min<wfaceE.min))wfaceE=e;});
+    if(wfaceE){wfaceE.min=535;wfaceE.tm='8:35 AM';}
+    // number cook/eat blocks by time and add a matching waterfloss right after each
+    let cooks=entries.filter(e=>/cook\s*[\/\+]\s*eat/i.test(e.t||'')&&e.min!=null).sort((a,b)=>a.min-b.min);
+    cooks.forEach((e,idx)=>{e.t='cook/eat '+(idx+1);});
+    cooks.forEach((e,idx)=>{entries.push({t:'waterfloss '+(idx+1),tm:minStr(e.min+1),min:e.min+1,oi:-1});});
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>{const am=a.min==null?1e9:a.min,bm=b.min==null?1e9:b.min;return (am-bm)||(a.ord-b.ord);});
+    const used=new Set();
+    entries.forEach(e=>{if(e.min==null)return;let m=e.min;while(used.has(m))m++;used.add(m);if(m!==e.min){e.min=m;e.tm=minStr(m);}});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_wf_cookeat=true;await saveAll();
+  }
+  if(!state.meta.mig_cookcont){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=state.tasks.map((t,i)=>({t,tm:state.times[i]||'',min:parseClock(state.times[i]),oi:i}));
+    const cooks=entries.filter(e=>/cook\s*[\/\+]\s*eat/i.test(e.t||'')&&e.min!=null).map(e=>e.min);
+    cooks.forEach(cm=>{[5,10].forEach(d=>{const m=cm+d;if(!entries.some(e=>e.min===m))entries.push({t:'"',tm:minStr(m),min:m,oi:-1});});});
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>{const am=a.min==null?1e9:a.min,bm=b.min==null?1e9:b.min;return (am-bm)||(a.ord-b.ord);});
+    const used=new Set();
+    entries.forEach(e=>{if(e.min==null)return;let m=e.min;while(used.has(m))m++;used.add(m);if(m!==e.min){e.min=m;e.tm=minStr(m);}});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_cookcont=true;await saveAll();
+  }
+  if(!state.meta.mig_toiletwash){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=[];
+    state.tasks.forEach((t,i)=>{const mn=parseClock(state.times[i]);
+      if(/wash face/i.test(t||''))return; // drop all wash face, re-add one
+      entries.push({t,tm:state.times[i]||'',min:mn,oi:i});});
+    entries.forEach(e=>{if(e.min===530){e.min=531;e.tm='8:51 AM';}}); // free 8:50
+    const toiletE=entries.find(e=>/^toilet/i.test((e.t||'').trim()));
+    if(toiletE){toiletE.min=530;toiletE.tm='8:50 AM';}
+    entries.forEach(e=>{if(e.min===535){e.min=536;e.tm='8:56 AM';}}); // free 8:55
+    entries.push({t:'wash face',tm:'8:55 AM',min:535,oi:-1});
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>{const am=a.min==null?1e9:a.min,bm=b.min==null?1e9:b.min;return (am-bm)||(a.ord-b.ord);});
+    const used=new Set();
+    entries.forEach(e=>{if(e.min==null)return;let m=e.min;while(used.has(m))m++;used.add(m);if(m!==e.min){e.min=m;e.tm=minStr(m);}});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_toiletwash=true;await saveAll();
+  }
+  if(!state.meta.mig_sunwash2){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=state.tasks.map((t,i)=>({t,tm:state.times[i]||'',min:parseClock(state.times[i]),oi:i}));
+    entries.forEach(e=>{if(e.min===515){e.min=516;e.tm='8:36 AM';}});      // free 8:35
+    const we=entries.find(e=>/wash face/i.test(e.t||''));if(we){we.min=515;we.tm='8:35 AM';}
+    entries.forEach(e=>{if(e.min===535){e.min=536;e.tm='8:56 AM';}});      // free 8:55
+    const se=entries.find(e=>/^sun$/i.test((e.t||'').trim()));if(se){se.min=535;se.tm='8:55 AM';}
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>{const am=a.min==null?1e9:a.min,bm=b.min==null?1e9:b.min;return (am-bm)||(a.ord-b.ord);});
+    const used=new Set();
+    entries.forEach(e=>{if(e.min==null)return;let m=e.min;while(used.has(m))m++;used.add(m);if(m!==e.min){e.min=m;e.tm=minStr(m);}});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_sunwash2=true;await saveAll();
+  }
+  if(!state.meta.mig_cook20){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    const isCook=t=>/cook\s*[\/\+]\s*eat/i.test(t||''),isDit=t=>t==='"',isWF=t=>/^waterfloss/i.test(t||'');
+    let all=state.tasks.map((t,i)=>({t,min:parseClock(state.times[i]),oi:i})).filter(e=>e.min!=null);
+    const cookMins=all.filter(e=>isCook(e.t)).map(e=>e.min).sort((a,b)=>a-b);
+    let kept=all.filter(e=>!isWF(e.t)&&!(isDit(e.t)&&cookMins.some(M=>e.min===M+5||e.min===M+10)));
+    let cooks=kept.filter(e=>isCook(e.t)).sort((a,b)=>a.min-b.min);
+    let rest=kept.filter(e=>!isCook(e.t)).sort((a,b)=>a.min-b.min);
+    let blocks=[];rest.forEach(e=>{if(isDit(e.t)&&blocks.length)blocks[blocks.length-1].push(e);else blocks.push([e]);});
+    const used=new Set();cookMins.forEach(M=>{[0,5,10,15,25].forEach(d=>used.add(M+d));});
+    let out=[];
+    cooks.forEach((c,idx)=>{out.push({t:'cook/eat '+(idx+1),min:c.min,oi:c.oi});
+      [5,10,15].forEach(d=>out.push({t:'"',min:c.min+d,oi:-1}));
+      out.push({t:'waterfloss '+(idx+1),min:c.min+25,oi:-1});});
+    blocks.forEach(b=>{const L=b.length;let start=Math.floor(b[0].min/5)*5;
+      while(true){let ok=true;for(let k=0;k<L;k++){if(used.has(start+5*k)){ok=false;break;}}if(ok)break;start+=5;}
+      for(let k=0;k<L;k++){const m=start+5*k;used.add(m);out.push({t:b[k].t,min:m,oi:b[k].oi});}});
+    out.sort((a,b)=>a.min-b.min);out.forEach(e=>e.tm=minStr(e.min));
+    state.tasks=out.map(e=>e.t);state.times=out.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];out.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_cook20=true;await saveAll();
+  }
+  if(!state.meta.mig_xanaxstretch){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    const isCook=t=>/cook\s*[\/\+]\s*eat/i.test(t||''),isDit=t=>t==='"',isWF=t=>/^waterfloss/i.test(t||''),isXan=t=>/xanax/i.test(t||'');
+    let all=state.tasks.map((t,i)=>({t,min:parseClock(state.times[i]),oi:i})).filter(e=>e.min!=null);
+    all.forEach(e=>{if(/massage/i.test(e.t||''))e.t='stretch, roller, massage (neck, back, etc)';});
+    const cookMins=all.filter(e=>isCook(e.t)).map(e=>e.min).sort((a,b)=>a-b);
+    let kept=all.filter(e=>!isWF(e.t)&&!isXan(e.t)&&!(isDit(e.t)&&cookMins.some(M=>e.min===M+5||e.min===M+10||e.min===M+15)));
+    let cooks=kept.filter(e=>isCook(e.t)).sort((a,b)=>a.min-b.min);
+    let rest=kept.filter(e=>!isCook(e.t)).sort((a,b)=>a.min-b.min);
+    let blocks=[];rest.forEach(e=>{if(isDit(e.t)&&blocks.length)blocks[blocks.length-1].push(e);else blocks.push([e]);});
+    const used=new Set();cookMins.forEach(M=>{[0,5,10,15,25,30].forEach(d=>used.add(M+d));});
+    let out=[];
+    cooks.forEach((c,idx)=>{const N=idx+1;out.push({t:'cook/eat '+N,min:c.min,oi:c.oi});
+      [5,10,15].forEach(d=>out.push({t:'"',min:c.min+d,oi:-1}));
+      out.push({t:'waterfloss '+N,min:c.min+25,oi:-1});
+      out.push({t:'xanax 0.03 '+N,min:c.min+30,oi:-1});});
+    blocks.forEach(b=>{const L=b.length;let start=Math.floor(b[0].min/5)*5;
+      while(true){let ok=true;for(let k=0;k<L;k++){if(used.has(start+5*k)){ok=false;break;}}if(ok)break;start+=5;}
+      for(let k=0;k<L;k++){const m=start+5*k;used.add(m);out.push({t:b[k].t,min:m,oi:b[k].oi});}});
+    out.sort((a,b)=>a.min-b.min);out.forEach(e=>e.tm=minStr(e.min));
+    state.tasks=out.map(e=>e.t);state.times=out.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];out.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_xanaxstretch=true;await saveAll();
+  }
+  if(!state.meta.mig_morning2){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=state.tasks.map((t,i)=>({t,min:parseClock(state.times[i]),oi:i})).filter(e=>e.min!=null);
+    const occAt=m=>entries.some(e=>e.min===m);
+    const placeAt=(item,S)=>{if(occAt(S)){let run=S;while(occAt(run))run+=5;entries.forEach(e=>{if(e.min>=S&&e.min<run)e.min+=5;});}item.min=S;entries.push(item);};
+    let rif=entries.find(e=>/rifaximin 1\/3/i.test(e.t));if(rif){entries=entries.filter(e=>e!==rif);}else rif={t:'Rifaximin 1/3',oi:-1};
+    let burn=entries.find(e=>/burn 50 cal/i.test(e.t));if(burn){entries=entries.filter(e=>e!==burn);}else burn={t:'burn 50 cal',oi:-1};
+    entries=entries.filter(e=>!(e.t==='"'&&(e.min===595)));
+    placeAt(rif,560);placeAt(burn,590);placeAt({t:'"',oi:-1},595);
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>(a.min-b.min)||(a.ord-b.ord));
+    const used=new Set();entries.forEach(e=>{let m=e.min;while(used.has(m))m+=5;used.add(m);e.min=m;e.tm=minStr(m);});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_morning2=true;await saveAll();
+  }
+  if(!state.meta.mig_water840){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=state.tasks.map((t,i)=>({t,min:parseClock(state.times[i]),oi:i})).filter(e=>e.min!=null);
+    const isWater=t=>/^water\s+\d/i.test((t||'').trim());
+    let waters=entries.filter(e=>isWater(e.t)).sort((a,b)=>a.min-b.min);
+    entries=entries.filter(e=>!isWater(e.t));
+    const occAt=m=>entries.some(e=>e.min===m);
+    const placeAt=(item,S)=>{if(occAt(S)){let run=S;while(occAt(run))run+=5;entries.forEach(e=>{if(e.min>=S&&e.min<run)e.min+=5;});}item.min=S;entries.push(item);};
+    waters.forEach((w,k)=>placeAt(w,520+60*k)); // 8:40 AM, then hourly
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>(a.min-b.min)||(a.ord-b.ord));
+    const used=new Set();entries.forEach(e=>{let m=e.min;while(used.has(m))m+=5;used.add(m);e.min=m;e.tm=minStr(m);});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_water840=true;await saveAll();
+  }
+  if(!state.meta.mig_pm1block){
+    const fmtT=(h,m)=>{const ap=h<12?'AM':'PM';let hh=h%12;if(hh===0)hh=12;return hh+':'+(m<10?'0'+m:m)+' '+ap;};
+    const minStr=mn=>fmtT(Math.floor(mn/60),mn%60);
+    const doneSets={};for(const k in state.days)doneSets[k]=new Set((state.days[k]&&state.days[k].done)||[]);
+    let entries=state.tasks.map((t,i)=>({t,min:parseClock(state.times[i]),oi:i})).filter(e=>e.min!=null);
+    const occAt=m=>entries.some(e=>e.min===m);
+    const placeAt=(item,S)=>{if(occAt(S)){let run=S;while(occAt(run))run+=5;entries.forEach(e=>{if(e.min>=S&&e.min<run)e.min+=5;});}item.min=S;entries.push(item);};
+    let pee=entries.find(e=>/^pee/i.test((e.t||'').trim())&&e.min>=780&&e.min<840);
+    if(pee){entries=entries.filter(e=>e!==pee);}else pee={t:'pee',oi:-1};
+    let burn=entries.find(e=>/^burn/i.test((e.t||'').trim())&&e.min>=780&&e.min<840);
+    if(burn){entries=entries.filter(e=>e!==burn);burn.t='burn 150 cal';}else burn={t:'burn 150 cal',oi:-1};
+    entries=entries.filter(e=>!(e.t==='"'&&e.min>=831&&e.min<=839));
+    placeAt(pee,825);placeAt(burn,830);placeAt({t:'"',oi:-1},835);
+    entries.forEach((e,i)=>e.ord=i);
+    entries.sort((a,b)=>(a.min-b.min)||(a.ord-b.ord));
+    const used=new Set();entries.forEach(e=>{let m=e.min;while(used.has(m))m+=5;used.add(m);e.min=m;e.tm=minStr(m);});
+    state.tasks=entries.map(e=>e.t);state.times=entries.map(e=>e.tm);
+    for(const k in state.days){const ds=doneSets[k],nd=[];entries.forEach((e,j)=>{if(e.oi>=0&&ds.has(e.oi))nd.push(j);});state.days[k].done=nd;}
+    state.meta.mig_pm1block=true;await saveAll();
+  }
   soundOn=(state.meta.soundOn!==false);voiceOn=(state.meta.voiceOn!==false);jungleOn=(state.meta.jungleOn!==false);autoMode=(state.meta.autoMode===true);setToggleUI();
   recomputeCurrentDay();
   backupNow();
@@ -1106,7 +1340,9 @@ function todayKey(){const d=new Date();return new Date(d.getFullYear(),d.getMont
 function recomputeCurrentDay(){const s=state.meta.startDate||todayKey();const diff=Math.floor((todayKey()-s)/86400000);state.meta.currentDay=Math.min(TOTAL_DAYS,Math.max(1,diff+1));}
 function dateForDay(n){const s=new Date(state.meta.startDate||todayKey());const d=new Date(s.getTime()+(n-1)*86400000);return d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});}
 function dayRecord(n){if(!state.days[n])state.days[n]={done:[],best:0};return state.days[n];}
-function isDayCleared(n){const r=state.days[n];return r&&state.tasks.length>0&&r.done.length>=state.tasks.length;}
+function isDayCleared(n){const r=state.days[n];if(!r||!state.tasks.length)return false;
+  let need=0,have=0;for(let i=0;i<state.tasks.length;i++){if(state.tasks[i]==='"')continue;need++;if(r.done.includes(i))have++;}
+  return need>0&&have>=need;}
 function clearedCount(){let c=0;for(let i=1;i<=TOTAL_DAYS;i++)if(isDayCleared(i))c++;return c;}
 function currentStreak(){let s=0;for(let i=state.meta.currentDay;i>=1;i--){if(isDayCleared(i))s++;else break;}return s;}
 
@@ -1281,10 +1517,10 @@ function taskSecs(t){t=(t||'').toLowerCase();if(t.includes('walk'))return 900;if
   return BREAK_SECS;}
 let onceMode=false,onceIdx=-1;
 function isTaskDone(i){const r=state.days[state.meta.currentDay];return !!(r&&r.done&&r.done.includes(i));}
-function nextUndone(from){const n=state.tasks.length;if(!n)return 0;for(let k=0;k<n;k++){const i=((from%n)+n+k)%n;if(!isTaskDone(i)&&!skippedSet.has(i))return i;}skippedSet.clear();for(let k=0;k<n;k++){const i=((from%n)+n+k)%n;if(!isTaskDone(i))return i;}return ((from%n)+n)%n;}
+function nextUndone(from){const n=state.tasks.length;if(!n)return 0;for(let k=0;k<n;k++){const i=((from%n)+n+k)%n;if(state.tasks[i]==='"')continue;if(!isTaskDone(i)&&!skippedSet.has(i))return i;}skippedSet.clear();for(let k=0;k<n;k++){const i=((from%n)+n+k)%n;if(state.tasks[i]==='"')continue;if(!isTaskDone(i))return i;}for(let k=0;k<n;k++){const i=((from%n)+n+k)%n;if(state.tasks[i]!=='"')return i;}return ((from%n)+n)%n;}
 function firstUndoneOnce(){if(!state.once)return -1;for(let i=0;i<state.once.length;i++)if(state.once[i]&&!state.once[i].done)return i;return -1;}
 function caughtUp(){const d=new Date(),cm=d.getHours()*60+d.getMinutes();
-  for(let i=0;i<state.tasks.length;i++){if(isTaskDone(i)||skippedSet.has(i))continue;const mn=parseClock(state.times&&state.times[i]);if(mn==null)return false;if(mn<=cm)return false;}
+  for(let i=0;i<state.tasks.length;i++){if(state.tasks[i]==='"')continue;if(isTaskDone(i)||skippedSet.has(i))continue;const mn=parseClock(state.times&&state.times[i]);if(mn==null)return false;if(mn<=cm)return false;}
   return true;}
 function startAtTop(){skippedSet.clear();jumpTask=-1;lockedTask=null;curTask=nextUndone(0);}
 function advanceTask(){if(onceMode){lockedTask=null;return;}jumpTask=-1;lockedTask=null;curTask=nextUndone(curTask+1);}
@@ -1543,7 +1779,10 @@ function fitTitle(el,text){if(!el)return;
   // 1) shrink ONLY a word that is itself too wide; words that fit stay big
   spans.forEach(s=>{let size=base,g=0;while(s.getBoundingClientRect().width>avail&&size>10&&g<90){size-=1;s.style.fontSize=size+'px';g++;}});
   // 2) hard guarantee: if the title still overflows its box, scale all words down until it fits
-  let guard=0;while(el.scrollWidth>el.clientWidth+1&&guard<90){spans.forEach(s=>{const fs=parseFloat(getComputedStyle(s).fontSize)||base;if(fs>10)s.style.fontSize=(fs-1)+'px';});guard++;}}
+  let guard=0;while(el.scrollWidth>el.clientWidth+1&&guard<90){spans.forEach(s=>{const fs=parseFloat(getComputedStyle(s).fontSize)||base;if(fs>10)s.style.fontSize=(fs-1)+'px';});guard++;}
+  // 3) sky title only: keep it within the sky band (don't spill onto the road) by shrinking the whole title
+  if(el.id==='sky-task'){const wrap=document.querySelector('.game-wrap');const maxH=wrap?Math.max(70,wrap.clientHeight*0.30):150;
+    let hg=0;while(el.scrollHeight>maxH&&hg<140){let any=false;spans.forEach(s=>{const fs=parseFloat(getComputedStyle(s).fontSize)||base;if(fs>9){s.style.fontSize=(fs-1)+'px';any=true;}});if(!any)break;hg++;}}}
 function dispName(t){return (t||'').split(' ').map(w=>{const lw=w.toLowerCase();
   if(lw==='ml'||lw==='mg'||lw==='oz'||lw==='cal')return lw;
   if(/^[\d.]/.test(w))return w;
@@ -1627,21 +1866,32 @@ function renderDayColumn(){const scroll=document.getElementById('dc-scroll');if(
   {const rc=document.getElementById('rep-cnt');if(rc)rc.textContent='('+(state.tasks?state.tasks.length:0)+')';}
   const rec=dayRecord(state.meta.currentDay),cur=onceMode?-1:curTask%Math.max(1,state.tasks.length);
   scroll.querySelectorAll('.dc-item,.dc-divider,.dc-hrline').forEach(e=>e.remove());
-  const list=state.tasks.map((t,i)=>({t,i,min:parseClock(state.times&&state.times[i])})).filter(x=>x.min!=null).sort((a,b)=>a.min-b.min);
-  let prevH=null,renderedH=null,workStarts=false,workEnds=false,nightStarts=false;
+  const tasks=state.tasks.map((t,i)=>({t,i,min:parseClock(state.times&&state.times[i])})).filter(x=>x.min!=null).sort((a,b)=>a.min-b.min);
+  let rows=[];
+  if(tasks.length){
+    const occupied=new Set();tasks.forEach(x=>occupied.add(Math.round(x.min/5)*5));
+    const firstM=Math.floor(tasks[0].min/5)*5,lastM=tasks[tasks.length-1].min;
+    for(let m=firstM;m<=lastM;m+=5){if(!occupied.has(m))rows.push({empty:true,min:m});}
+    tasks.forEach(x=>rows.push(x));
+    rows.sort((a,b)=>(a.min-b.min)||((a.empty?1:0)-(b.empty?1:0)));
+  }
+  const fmtMin=m=>{let h=Math.floor(m/60),mi=m%60,hh=h%12;if(hh===0)hh=12;return hh+':'+(mi<10?'0':'')+mi;};
+  let prevH=null,renderedH=null,workStarts=false,workEnds=false,nightStarts=false,parentDone=false;
   const hourLine=()=>{const ln=document.createElement('div');ln.className='dc-hrline';scroll.appendChild(ln);};
-  list.forEach(x=>{const curH=Math.floor(x.min/60);
+  rows.forEach(x=>{const curH=Math.floor(x.min/60);
     if(!workStarts&&x.min>=9*60){const dv=document.createElement('div');dv.className='dc-divider';dv.textContent='WORK STARTS';scroll.appendChild(dv);workStarts=true;}
     if(!workEnds&&x.min>=17*60){const dv=document.createElement('div');dv.className='dc-divider';dv.textContent='WORK ENDS';scroll.appendChild(dv);workEnds=true;}
     if(!nightStarts&&x.min>=22*60){const dv=document.createElement('div');dv.className='dc-divider';dv.textContent='NIGHT STARTS';scroll.appendChild(dv);nightStarts=true;}
-    if(prevH!=null){for(let h=prevH+1;h<curH;h++){if(renderedH!=null)hourLine();renderedH=h;const g=document.createElement('div');g.dataset.min=h*60;
-      if(h>=7&&h<=22){g.className='dc-item gap hourstart blank';g.innerHTML='<span class="t"></span><span class="n">＋ add task</span>';g.querySelector('.t').textContent=h12(h);g.onclick=()=>addTaskAt(h*60);}
-      else{g.className='dc-item gap hourstart';g.innerHTML='<span class="t"></span><span class="n"></span>';g.querySelector('.t').textContent=h12(h);}
-      scroll.appendChild(g);}}
     const isHourStart=(curH!==renderedH);
     if(isHourStart){if(renderedH!=null)hourLine();renderedH=curH;}
-    if(/sleep heals/i.test(x.t)){const it=document.createElement('div');it.className='dc-item sleepheal'+(isHourStart?' hourstart':'');it.dataset.min=x.min;
+    if(x.empty){parentDone=false;const g=document.createElement('div');g.className='dc-item gap blank5'+(isHourStart?' hourstart':'');g.dataset.min=x.min;
+      g.innerHTML='<span class="t"></span><span class="n"></span>';g.querySelector('.t').textContent=fmtMin(x.min);
+      g.style.cursor='pointer';g.onclick=()=>addTaskAt(x.min);scroll.appendChild(g);prevH=curH;return;}
+    if(x.t==='"'){const it=document.createElement('div');it.className='dc-item cont'+(isHourStart?' hourstart':'')+(parentDone?' done':'');it.dataset.min=x.min;
+      it.innerHTML='<span class="t"></span><span class="n">″</span>';it.querySelector('.t').textContent=fmtMin(x.min);scroll.appendChild(it);prevH=curH;return;}
+    if(/sleep heals/i.test(x.t)){parentDone=false;const it=document.createElement('div');it.className='dc-item sleepheal'+(isHourStart?' hourstart':'');it.dataset.min=x.min;
       it.innerHTML='<span class="t">11:00+</span><span class="n">sleep heals</span>';scroll.appendChild(it);prevH=curH;return;}
+    parentDone=rec.done.includes(x.i);
     const it=document.createElement('div');it.className='dc-item'+(isHourStart?' hourstart':'')+(x.i===cur?' cur':'')+(rec.done.includes(x.i)?' done':'');it.dataset.min=x.min;
     const tm=((state.times&&state.times[x.i])?state.times[x.i]:'').replace(/\s*[ap]\.?m\.?/i,'').trim();
     it.innerHTML='<span class="t"></span><span class="n"></span>';it.querySelector('.t').textContent=tm;
@@ -1983,17 +2233,18 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('screen-game
   else if(e.code==='KeyP'){e.preventDefault();togglePause();}
   else if(e.code==='Enter'){e.preventDefault();const goOv=document.getElementById('game-over');if(cooling){if(actGuard())cdDidIt();}else if(goOv&&!goOv.classList.contains('hidden')){restartGame();}else if(!G.running)beginRun();}});
 const cv=document.getElementById('gl');let tx=null,ty=null,tHandled=false;
-cv.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;tHandled=false;},{passive:true});
-cv.addEventListener('touchmove',e=>{if(tx===null||tHandled)return;
+cv.addEventListener('touchstart',e=>{if(!e.touches[0])return;tx=e.touches[0].clientX;ty=e.touches[0].clientY;tHandled=false;},{passive:true});
+cv.addEventListener('touchmove',e=>{if(tx===null||tHandled||!e.touches[0])return;
   const dx=e.touches[0].clientX-tx,dy=e.touches[0].clientY-ty,ax=Math.abs(dx),ay=Math.abs(dy),TH=18;
   if(ax<TH&&ay<TH)return;
-  tHandled=true;e.preventDefault();
+  tHandled=true;if(e.cancelable)e.preventDefault();
   if(ax>ay)moveLane(dx>0?1:-1);
   else{if(dy<0){if(!G.running)beginRun();else jump();}else slide();}},{passive:false});
 cv.addEventListener('touchend',e=>{if(tx===null)return;
-  if(!tHandled){const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(!tHandled&&e.changedTouches[0]){const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
     if(Math.abs(dx)<18&&Math.abs(dy)<18){if(!G.running)beginRun();else jump();}}
   tx=ty=null;tHandled=false;},{passive:true});
+cv.addEventListener('touchcancel',()=>{tx=ty=null;tHandled=false;},{passive:true});
 function bindPad(id,fn){const el=document.getElementById(id);
   el.addEventListener('pointerdown',e=>{e.preventDefault();fn();},{passive:false});}
 bindPad('p-left',()=>moveLane(-1));
@@ -2002,24 +2253,27 @@ bindPad('p-jump',()=>{if(!G.running)beginRun();else jump();});
 bindPad('p-slide',slide);
 
 /* spawning */
-function buildCart(deckH){
-  // A wooden train car: wheels, plank body, flat deck on top to stand on.
-  const g=new THREE.Group();const W=1.7,D=2.6,wr=0.4;
+function buildCart(deckH,D){
+  // A wooden train car: wheels, plank body, flat deck on top to stand on. D = length.
+  D=D||2.6;
+  const g=new THREE.Group();const W=1.7,wr=0.4;
   const wheels=[];
-  [[-W/2,-D/2+0.5],[W/2,-D/2+0.5],[-W/2,D/2-0.5],[W/2,D/2-0.5]].forEach(p=>{
-    const w=bm(GEO.cyl,MAT.wheel,wr*2,0.2,wr*2,p[0],wr,p[1]);w.rotation.z=Math.PI/2;g.add(w);wheels.push(w);});
+  const pairs=Math.max(2,Math.round(D/2.4));
+  for(let i=0;i<pairs;i++){const zz=-D/2+0.5+(pairs>1?(i/(pairs-1))*(D-1.0):0);
+    [-W/2,W/2].forEach(xx=>{const w=bm(GEO.cyl,MAT.wheel,wr*2,0.2,wr*2,xx,wr,zz);w.rotation.z=Math.PI/2;g.add(w);wheels.push(w);});}
   const bodyH=Math.max(0.5,deckH-0.18),by=0.2+bodyH/2;
   g.add(bm(GEO.box,MAT.wood,W,bodyH,D,0,by,0));               // body
   for(let i=0;i<3;i++)g.add(bm(GEO.box,MAT.woodDark,W+0.03,0.07,D+0.03,0,0.35+i*(bodyH/3),0)); // plank bands
   g.add(bm(GEO.box,MAT.woodDark,0.12,bodyH,D+0.03,-W/2+0.06,by,0)); // corner trims
   g.add(bm(GEO.box,MAT.woodDark,0.12,bodyH,D+0.03,W/2-0.06,by,0));
   g.add(bm(GEO.box,MAT.woodDark,W+0.12,0.14,D+0.12,0,deckH,0));// deck rim
-  g.add(bm(GEO.box,MAT.wood,0.34,0.34,0.5,0,deckH+0.0,D/2+0.12));// front coupler block
+  g.add(bm(GEO.box,MAT.wood,0.34,0.34,0.5,0,deckH,D/2+0.12));// front coupler block
   g.add(bm(GEO.cyl,MAT.woodDark,0.16,0.5,0.16,0,0.2,D/2+0.34));// coupler bar
   g.userData.wheels=wheels;
   return g;}
 function addObstacle(type,lane,z){let mesh,ud;const x=LANES[lane];
-  if(type==='rock'){mesh=buildCart(0.6);ud={hw:0.82,hd:1.25,ymin:0,ymax:0.66,platform:true,wheels:mesh.userData.wheels};}
+  if(type==='train'){mesh=buildCart(0.96,9.5);ud={hw:0.82,hd:4.75,ymin:0,ymax:1.02,platform:true,wheels:mesh.userData.wheels};}
+  else if(type==='rock'){mesh=buildCart(0.6);ud={hw:0.82,hd:1.25,ymin:0,ymax:0.66,platform:true,wheels:mesh.userData.wheels};}
   else if(type==='crate'){mesh=buildCart(0.9);ud={hw:0.82,hd:1.25,ymin:0,ymax:0.96,platform:true,wheels:mesh.userData.wheels};}
   else if(type==='log'){mesh=buildCart(0.9);ud={hw:0.82,hd:1.25,ymin:0,ymax:0.96,platform:true,wheels:mesh.userData.wheels};}
   else if(type==='block'){mesh=buildCart(1.2);ud={hw:0.82,hd:1.25,ymin:0,ymax:1.26,platform:true,wheels:mesh.userData.wheels};}
@@ -2054,14 +2308,12 @@ function addObstacle(type,lane,z){let mesh,ud;const x=LANES[lane];
     ud={hw:0.82,hd:0.6,ymin:0,ymax:2.8};}
   mesh.position.set(x,0,z==null?-90:z);mesh.userData=ud;R.scene.add(mesh);obstacles.push(mesh);}
 function spawnParkour(){
-  const lane=Math.floor(Math.random()*3),x=LANES[lane];
-  const steps=[['rock',0.66],['crate',0.96],['block',1.26],['block2',1.56]];
-  const n=2+Math.floor(Math.random()*3);
+  const lane=Math.floor(Math.random()*3),x=LANES[lane],z=-92;
+  addObstacle('train',lane,z);
   const tex=iconTexture(taskConcept(currentTask()));
-  for(let s=0;s<n;s++){const t=steps[s][0],top=steps[s][1],z=-76-s*6;
-    addObstacle(t,lane,z);
-    const cy=top+0.7,m=new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false});
-    const c=new THREE.Sprite(m);c.scale.set(1.4,1.4,1);c.position.set(x,cy,z);
+  const cy=1.02+0.7;
+  for(let i=0;i<5;i++){const m=new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false});
+    const c=new THREE.Sprite(m);c.scale.set(1.4,1.4,1);c.position.set(x,cy,z-4+i*2);
     c.userData={lane:lane,baseY:cy,ph:Math.random()*6.28,slow:true};R.scene.add(c);coins.push(c);}}
 function spawnWaterBridge(){const z=-94,bl=Math.floor(Math.random()*3);
   for(let l=0;l<3;l++)addObstacle('water',l,z);
@@ -2135,8 +2387,8 @@ function animate(){R.raf=requestAnimationFrame(animate);if(!R.active)return;
     G.footT-=dt;if(P.grounded&&!P.sliding&&G.footT<=0){SFX.foot();G.footT=0.26;}
     if(G.dist>=G.spawnAt){spawnPattern();G.spawnAt=G.dist+(13+Math.random()*8)-Math.min(5,G.dist*0.004);}
     if(G.dist>=G.coinAt){spawnCoins();G.coinAt=G.dist+(18+Math.random()*16);}
-    for(const o of obstacles){const u=o.userData;const mv=(u&&(u.platform&&u.wheels))?move*0.5:move;o.position.z+=mv;const ws=u&&u.wheels;if(ws)for(const w of ws)w.rotation.x-=mv*0.9;}
-    for(const c of coins){const cmv=c.userData.slow?move*0.5:move;c.position.z+=cmv;c.position.y=c.userData.baseY+Math.sin(G.t*4+c.userData.ph)*0.14;c.position.x=LANES[c.userData.lane]+Math.sin(G.t*2.2+c.userData.ph)*0.12;}
+    for(const o of obstacles){const u=o.userData;const mv=move;o.position.z+=mv;const ws=u&&u.wheels;if(ws)for(const w of ws)w.rotation.x-=mv*0.9;}
+    for(const c of coins){const cmv=move;c.position.z+=cmv;c.position.y=c.userData.baseY+Math.sin(G.t*4+c.userData.ph)*0.14;c.position.x=LANES[c.userData.lane]+Math.sin(G.t*2.2+c.userData.ph)*0.12;}
     for(const o of obstacles){if(hitObstacle(o)){gameOver();break;}}
     for(const c of coins){if(!c.userData.got&&Math.abs(P.x-c.position.x)<0.7&&Math.abs(c.position.z-PLAYER_Z)<0.7){
       if(Math.abs(c.position.y-(P.y+0.9))<1.4){c.userData.got=true;c.visible=false;G.gems++;coinCollect(c);}}}
@@ -2170,7 +2422,7 @@ function animate(){R.raf=requestAnimationFrame(animate);if(!R.active)return;
     sp.scale.set(u.baseS*(0.95+0.12*Math.sin(ft*11+u.phase)),u.baseS*2.3*fk,1);
     sp.position.y=u.baseY+Math.sin(ft*9+u.phase)*0.09;sp.position.x=Math.sin(ft*7+u.phase)*0.08;
     sp.material.opacity=u.baseO*(0.78+0.22*Math.sin(ft*17+u.phase));}}
-  if(torchLight)torchLight.intensity=1.05+Math.sin(ft*30)*0.15+Math.sin(ft*12.3)*0.1;
+  if(torchLight)torchLight.intensity=1.1;
   R.renderer.render(R.scene,R.cam);}
 
 async function gameOver(){G.over=true;G.running=false;G.paused=false;SFX.hit();
@@ -2191,6 +2443,7 @@ async function gameOver(){G.over=true;G.running=false;G.paused=false;SFX.hit();
   startCooldown();
   if(broke){const s=document.getElementById('cd-sub');if(s)s.textContent='Out of gems — you have to pay!';if(typeof SFX!=='undefined'&&SFX.fail)SFX.fail();}}
 const EAT_DOW=['M','T','W','Th','F','Sa','Su'];
+const DEFAULT_MEALS={M:'eggs, watermelon, cranberries',Sa:'eggs, cantalope, cranberries',Su:'eggs, honeydew, cranberries'};
 function isEatTask(t){t=t||'';return /\beat\b/i.test(t)&&!/cranberr/i.test(t);}
 function eatKey(t){return 'meals_'+(t||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'_');}
 async function loadMeals(t){try{const v=await sGet(eatKey(t));if(v)return (typeof v==='string'?JSON.parse(v):v);}catch(e){}return {};}
@@ -2203,7 +2456,7 @@ async function setupEatCard(t){
   const tm=(state.times&&state.times[curTask])?state.times[curTask]:'';
   const meals=await loadMeals(t);
   const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
-  const rows=EAT_DOW.map(d=>'<div class="eat-row"><span class="eat-d">'+d+':</span><input class="eat-in" data-d="'+d+'" value="'+esc(meals[d])+'" placeholder="—"></div>').join('');
+  const rows=EAT_DOW.map(d=>{const v=(meals[d]!=null?meals[d]:(DEFAULT_MEALS[d]||''));return '<div class="eat-row"><span class="eat-d">'+d+':</span><input class="eat-in" data-d="'+d+'" value="'+esc(v)+'" placeholder="—"></div>';}).join('');
   card.innerHTML='<div class="eat-hdr">EAT</div><div class="eat-time">'+tm+'</div><div class="eat-grid">'+rows+'</div>';
   card.querySelectorAll('.eat-in').forEach(inp=>{inp.addEventListener('input',async()=>{const m=await loadMeals(t);m[inp.dataset.d]=inp.value;saveMeals(t,m);});});
 }
@@ -2219,15 +2472,18 @@ function startCooldown(){cooling=true;cdPaused=false;cdEnd=taskEnd||(Date.now()+
   setActBtns(true);
   refreshCd();clearInterval(cdInterval);cdInterval=setInterval(refreshCd,300);}
 function setActBtns(on){['cd-didit','cd-failed','cd-skip'].forEach(id=>{const b=document.getElementById(id);if(b)b.disabled=!on;});}
-function refreshCd(){if(cdPaused)return;const rem=Math.max(0,Math.round((cdEnd-Date.now())/1000));
+function refreshCd(){if(cdPaused)return;const rem=Math.round((cdEnd-Date.now())/1000);
   const tEl=document.getElementById('cd-timer');if(!tEl)return;
   const onGame=document.getElementById('screen-game').classList.contains('active');
-  if(rem>0){tEl.textContent=fmtTime(rem);tEl.classList.remove('ready');setActBtns(true);
+  if(rem>0){tEl.textContent=fmtTime(rem);tEl.classList.remove('ready','over');setActBtns(true);
     if(onGame&&voiceOn&&Date.now()>=cdNextSpeak){cdNextSpeak=Date.now()+15000;speakBreak(rem);}
-  }else{tEl.textContent="time's up";tEl.classList.add('ready');setActBtns(true);
+  }else if(autoMode){tEl.textContent="time's up";tEl.classList.add('ready');setActBtns(true);
     const s=document.getElementById('cd-sub');if(s)s.textContent="Time ran out for this one.";
     clearInterval(cdInterval);
-    if(!cdAutoFailed){cdAutoFailed=true;if(onGame&&voiceOn)speak("Time's up. Out of time for this task.");cdFailed();}}}
+    if(!cdAutoFailed){cdAutoFailed=true;if(onGame&&voiceOn)speak("Time's up. Out of time for this task.");cdFailed();}
+  }else{const over=-rem;tEl.textContent='-'+fmtTime(over);tEl.classList.remove('ready');tEl.classList.add('over');setActBtns(true);
+    const s=document.getElementById('cd-sub');if(s)s.textContent='Over by '+fmtTime(over)+' — wrap it up.';
+    if(onGame&&voiceOn&&Date.now()>=cdNextSpeak){cdNextSpeak=Date.now()+15000;speakBreak(rem);}}}
 function endCooldown(){cooling=false;cdPaused=false;clearInterval(cdInterval);if(window.speechSynthesis)speechSynthesis.cancel();document.getElementById('game-cd').classList.add('hidden');}
 async function markCurrentTaskDone(){
   if(onceMode&&state.once&&state.once[onceIdx]){state.once[onceIdx].done=true;await saveAll();SFX.chime();renderOnce();return;}
